@@ -44,6 +44,11 @@ h1 {
     text-align: center; /* 设置链接文本居中 */
 }
 
+/* 在最后一个链接卡片之后添加额外的间距 */
+.link-card:last-child {
+    margin-bottom: 20px;
+}
+
 footer {
     background-color: #343a40;
     color: #ffffff;
