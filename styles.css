@@ -5,13 +5,18 @@ body {
     background-color: #f8f9fa;
 }
 .container {
-    max-width: 800px;
+    max-width: 100%; /* 改为百分比以适应手机屏幕 */
     margin: 0 auto;
     padding: 20px;
 }
 h1 {
     text-align: center;
     color: #343a40;
+    font-size: 24px; /* 设置标题字体大小 */
+    line-height: 1.2; /* 设置标题行高，避免过多换行 */
+    white-space: nowrap; /* 防止标题换行 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    text-overflow: ellipsis; /* 使用省略号表示被截断的文本 */
 }
 .link-card {
     background-color: #ffffff;
@@ -38,10 +43,10 @@ footer {
     padding: 5px 0;
     position: fixed;
     bottom: 0;
-    width: calc(100% - 40px); /* 减小横幅的宽度 */
+    width: 100%;
 }
 footer p {
-    font-size: 14px; /* 减小字体大小 */
+    font-size: 14px;
 }
 @media (max-width: 600px) {
     .container {
@@ -52,5 +57,8 @@ footer p {
     }
     .link-card a {
         font-size: 16px;
+    }
+    footer p {
+        font-size: 12px; /* 在手机上进一步减小字体大小 */
     }
 }
