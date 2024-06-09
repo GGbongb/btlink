@@ -21,44 +21,74 @@
     <div class="container">
         <h1>高质量磁力搜索引擎聚合</h1>
         <div class="banner">
-            <div class="marquee">
-                <span>一个网址失效：www.example.com</span>
-                <span>一个网址新增：www.fakeurl123.com</span>
+            <div class="marquee" id="marquee">
+                <span>www.dkls.com失效</span>
+                <span>www.dkls.com新增</span>
             </div>
         </div>
-        <div class="link-card">
-            <a href="https://hn.cilido.top/">https://hn.cilido.top/</a>
-        </div>
-        <div class="link-card">
-            <a href="https://h75nqa.sokk34.buzz/">https://h75nqa.sokk34.buzz/</a>
-        </div>
-        <div class="link-card">
-            <a href="https://wuqianun.top/">https://wuqianun.top/</a>
-        </div>
-        <div class="link-card">
-            <a href="https://clm20240609.xn--yets15cv4k.com/">https://clm20240609.xn--yets15cv4k.com/</a>
-        </div>
-        <div class="link-card">
-            <a href="https://u9a9.link/">https://u9a9.link/</a>
-        </div>
-        <div class="link-card">
-            <a href="https://lemongb.top/">https://lemongb.top/</a>
-        </div>
-        <div class="link-card">
-            <a href="https://cilidi.top/">https://cilidi.top/</a>
-        </div>
-        <div class="link-card">
-            <a href="https://xn--bt-yq5cy8rerbq21h.com/">https://xn--bt-yq5cy8rerbq21h.com/</a>
-        </div>
-        <div class="link-card">
-            <a href="https://heimaai.top/">https://heimaai.top/</a>
-        </div>
-        <div class="link-card">
-            <a href="https://btstar.top/">https://btstar.top/</a>
+        <div id="link-cards">
+            <div class="link-card">
+                <a href="https://hn.cilido.top/">https://hn.cilido.top/</a>
+            </div>
+            <div class="link-card">
+                <a href="https://h75nqa.sokk34.buzz/">https://h75nqa.sokk34.buzz/</a>
+            </div>
+            <div class="link-card">
+                <a href="https://wuqianun.top/">https://wuqianun.top/</a>
+            </div>
+            <div class="link-card">
+                <a href="https://clm20240609.xn--yets15cv4k.com/">https://clm20240609.xn--yets15cv4k.com/</a>
+            </div>
+            <div class="link-card">
+                <a href="https://u9a9.link/">https://u9a9.link/</a>
+            </div>
+            <div class="link-card">
+                <a href="https://lemongb.top/">https://lemongb.top/</a>
+            </div>
+            <div class="link-card">
+                <a href="https://cilidi.top/">https://cilidi.top/</a>
+            </div>
+            <div class="link-card">
+                <a href="https://xn--bt-yq5cy8rerbq21h.com/">https://xn--bt-yq5cy8rerbq21h.com/</a>
+            </div>
+            <div class="link-card">
+                <a href="https://heimaai.top/">https://heimaai.top/</a>
+            </div>
+            <div class="link-card">
+                <a href="https://btstar.top/">https://btstar.top/</a>
+            </div>
         </div>
     </div>
     <footer>
         <p>以上链接搜集于网络，仅供交流与学习。</p>
     </footer>
+
+    <script>
+        function getRandomUrl() {
+            const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            let url = 'www.';
+            for (let i = 0; i < 8; i++) {
+                url += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            url += '.com';
+            return url;
+        }
+
+        function updateMarquee() {
+            const marquee = document.getElementById('marquee');
+            const urls = [getRandomUrl(), getRandomUrl()];
+            marquee.innerHTML = `<span>${urls[0]}失效</span><span>${urls[1]}新增</span>`;
+        }
+
+        function shuffleLinks() {
+            const linkCards = document.getElementById('link-cards');
+            for (let i = linkCards.children.length; i >= 0; i--) {
+                linkCards.appendChild(linkCards.children[Math.random() * i | 0]);
+            }
+        }
+
+        setInterval(updateMarquee, 5000); // 更新间隔为5秒
+        setInterval(shuffleLinks, 10000); // 链接顺序变换间隔为10秒
+    </script>
 </body>
 </html>
