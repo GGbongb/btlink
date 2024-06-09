@@ -4,11 +4,13 @@ body {
     padding: 0;
     background-color: #f8f9fa;
 }
+
 .container {
-    max-width: 800px; /* 限制页面最大宽度 */
-    margin: 0 auto; /* 设置左右外边距为自动，使页面内容居中 */
+    max-width: 100%; /* 改为百分比以适应手机屏幕 */
+    margin: 0 auto;
     padding: 20px;
 }
+
 h1 {
     text-align: center;
     color: #343a40;
@@ -18,6 +20,7 @@ h1 {
     overflow: hidden; /* 隐藏溢出内容 */
     text-overflow: ellipsis; /* 使用省略号表示被截断的文本 */
 }
+
 .link-card {
     background-color: #ffffff;
     border: 1px solid #dee2e6;
@@ -28,9 +31,11 @@ h1 {
     transition: transform 0.2s;
     max-width: 600px; /* 设置链接框框的最大宽度 */
 }
+
 .link-card:hover {
     transform: scale(1.02);
 }
+
 .link-card a {
     text-decoration: none;
     color: #007bff;
@@ -38,29 +43,32 @@ h1 {
     display: block;
     text-align: center; /* 设置链接文本居中 */
 }
+
 footer {
     background-color: #343a40;
     color: #ffffff;
     text-align: center;
-    padding: 5px 0;
+    padding: 10px 0; /* 增加上下内边距，增加底部声明与屏幕边缘的距离 */
     position: fixed;
     bottom: 0;
     width: 100%;
+    font-size: 12px; /* 适当调整字体大小以确保在手机屏幕上清晰可见 */
 }
-footer p {
-    font-size: 14px;
-}
+
 @media (max-width: 600px) {
     .container {
         padding: 10px;
     }
+
     .link-card {
         padding: 10px;
     }
+
     .link-card a {
         font-size: 16px;
     }
+
     footer p {
-        font-size: 12px; /* 在手机上进一步减小字体大小 */
+        font-size: 10px; /* 在手机上进一步减小字体大小 */
     }
 }
