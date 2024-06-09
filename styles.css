@@ -35,10 +35,13 @@ footer {
     background-color: #343a40;
     color: #ffffff;
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: calc(100% - 40px); /* 减小横幅的宽度 */
+}
+footer p {
+    font-size: 14px; /* 减小字体大小 */
 }
 @media (max-width: 600px) {
     .container {
