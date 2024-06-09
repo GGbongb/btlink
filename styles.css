@@ -16,6 +16,7 @@ h1 {
     color: #343a40;
     font-size: 24px;
     line-height: 1.2;
+    margin-bottom: 20px;
 }
 
 /* 滚动横幅样式 */
@@ -46,6 +47,12 @@ h1 {
     100% { transform: translate(-100%, 0); }
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
 .link-card {
     background-color: #ffffff;
     border: 1px solid #dee2e6;
@@ -73,7 +80,7 @@ footer {
     background-color: #343a40;
     color: #ffffff;
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0; /* 缩小底部横幅的高度 */
     position: fixed;
     bottom: 0;
     width: 100%;
