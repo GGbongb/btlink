@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    color: #343a40;
+}
+.link-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+.link-card:hover {
+    transform: scale(1.02);
+}
+.link-card a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    display: block;
+}
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    .link-card {
+        padding: 10px;
+    }
+    .link-card a {
+        font-size: 16px;
+    }
+}
