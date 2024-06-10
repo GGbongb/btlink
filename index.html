@@ -14,7 +14,6 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <!-- 百度统计代码结束 -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -132,11 +131,21 @@
                     <th>广告内容数量</th>
                 </tr>
             </thead>
-            <tbody id="link-rows">
+            <tbody>
                 <tr>
-                    <td><a href="https://hn.cilido.top/">https://hn.cilido.top/</a></td>
-                    <td>不准</td>
-                    <td>多</td>
+                    <td><a href="https://lemongb.top/">https://lemongb.top/</a></td>
+                    <td>准</td>
+                    <td>部分</td>
+                </tr>
+                <tr>
+                    <td><a href="https://heimaai.top/">https://heimaai.top/</a></td>
+                    <td>准</td>
+                    <td>部分</td>
+                </tr>
+                <tr>
+                    <td><a href="https://cilidi.top/">https://cilidi.top/</a></td>
+                    <td>准</td>
+                    <td>部分</td>
                 </tr>
                 <tr>
                     <td><a href="https://h75nqa.sokk34.buzz/">https://h75nqa.sokk34.buzz/</a></td>
@@ -149,6 +158,21 @@
                     <td>部分</td>
                 </tr>
                 <tr>
+                    <td><a href="https://hn.cilido.top/">https://hn.cilido.top/</a></td>
+                    <td>不准</td>
+                    <td>多</td>
+                </tr>
+                <tr>
+                    <td><a href="https://btstar.top/">https://btstar.top/</a></td>
+                    <td>不准</td>
+                    <td>多</td>
+                </tr>
+                <tr>
+                    <td><a href="https://xn--bt-yq5cy8rerbq21h.com/">https://xn--bt-yq5cy8rerbq21h.com/</a></td>
+                    <td>不准</td>
+                    <td>多</td>
+                </tr>
+                <tr>
                     <td><a href="https://clm20240609.xn--yets15cv4k.com/">https://clm20240609.xn--yets15cv4k.com/</a></td>
                     <td>不准</td>
                     <td>多</td>
@@ -157,31 +181,6 @@
                     <td><a href="https://u9a9.link/">https://u9a9.link/</a></td>
                     <td>无效</td>
                     <td>N/A</td>
-                </tr>
-                <tr>
-                    <td><a href="https://lemongb.top/">https://lemongb.top/</a></td>
-                    <td>准</td>
-                    <td>部分</td>
-                </tr>
-                <tr>
-                    <td><a href="https://cilidi.top/">https://cilidi.top/</a></td>
-                    <td>准</td>
-                    <td>部分</td>
-                </tr>
-                <tr>
-                    <td><a href="https://xn--bt-yq5cy8rerbq21h.com/">https://xn--bt-yq5cy8rerbq21h.com/</a></td>
-                    <td>不准</td>
-                    <td>多</td>
-                </tr>
-                <tr>
-                    <td><a href="https://heimaai.top/">https://heimaai.top/</a></td>
-                    <td>准</td>
-                    <td>部分</td>
-                </tr>
-                <tr>
-                    <td><a href="https://btstar.top/">https://btstar.top/</a></td>
-                    <td>不准</td>
-                    <td>多</td>
                 </tr>
             </tbody>
         </table>
@@ -207,15 +206,7 @@
             marquee.innerHTML = `<span>${urls[0]}失效</span><span>${urls[1]}新增</span>`;
         }
 
-        function shuffleLinks() {
-            const linkRows = document.getElementById('link-rows');
-            for (let i = linkRows.children.length; i >= 0; i--) {
-                linkRows.appendChild(linkRows.children[Math.random() * i | 0]);
-            }
-        }
-
         setInterval(updateMarquee, 5000); // 更新间隔为5秒
-        setInterval(shuffleLinks, 60000); // 链接顺序变换间隔为60秒
     </script>
 </body>
 </html>
