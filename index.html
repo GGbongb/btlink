@@ -101,6 +101,7 @@
             bottom: 0;
             width: 100%;
             font-size: 12px;
+            overflow-x: auto; /* 使底部横幅在移动设备上可水平滚动 */
         }
 
         @media (max-width: 600px) {
@@ -127,60 +128,49 @@
             <thead>
                 <tr>
                     <th>网址</th>
-                    <th>准确性</th>
-                    <th>广告内容数量</th>
+                    <th>可用</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><a href="https://lemongb.top/">https://lemongb.top/</a></td>
-                    <td>准</td>
-                    <td>部分</td>
+                    <td>√</td>
                 </tr>
                 <tr>
                     <td><a href="https://heimaai.top/">https://heimaai.top/</a></td>
-                    <td>准</td>
-                    <td>部分</td>
+                    <td>√</td>
                 </tr>
                 <tr>
                     <td><a href="https://cilidi.top/">https://cilidi.top/</a></td>
-                    <td>准</td>
-                    <td>部分</td>
+                    <td>√</td>
                 </tr>
                 <tr>
                     <td><a href="https://h75nqa.sokk34.buzz/">https://h75nqa.sokk34.buzz/</a></td>
-                    <td>准</td>
-                    <td>部分</td>
+                    <td>√</td>
                 </tr>
                 <tr>
                     <td><a href="https://wuqianun.top/">https://wuqianun.top/</a></td>
-                    <td>准</td>
-                    <td>部分</td>
+                    <td>√</td>
                 </tr>
                 <tr>
                     <td><a href="https://hn.cilido.top/">https://hn.cilido.top/</a></td>
-                    <td>不准</td>
-                    <td>多</td>
+                    <td>√</td>
                 </tr>
                 <tr>
                     <td><a href="https://btstar.top/">https://btstar.top/</a></td>
-                    <td>不准</td>
-                    <td>多</td>
+                    <td>√</td>
                 </tr>
                 <tr>
                     <td><a href="https://xn--bt-yq5cy8rerbq21h.com/">https://xn--bt-yq5cy8rerbq21h.com/</a></td>
-                    <td>不准</td>
-                    <td>多</td>
+                    <td>√</td>
                 </tr>
                 <tr>
                     <td><a href="https://clm20240609.xn--yets15cv4k.com/">https://clm20240609.xn--yets15cv4k.com/</a></td>
-                    <td>不准</td>
-                    <td>多</td>
+                    <td>√</td>
                 </tr>
                 <tr>
                     <td><a href="https://u9a9.link/">https://u9a9.link/</a></td>
-                    <td>无效</td>
-                    <td>N/A</td>
+                    <td>×</td>
                 </tr>
             </tbody>
         </table>
@@ -202,11 +192,4 @@
 
         function updateMarquee() {
             const marquee = document.getElementById('marquee');
-            const urls = [getRandomUrl(), getRandomUrl()];
-            marquee.innerHTML = `<span>${urls[0]}失效</span><span>${urls[1]}新增</span>`;
-        }
-
-        setInterval(updateMarquee, 5000); // 更新间隔为5秒
-    </script>
-</body>
-</html>
+            const urls = [getRandomUrl(), getRandomUrl
