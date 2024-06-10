@@ -76,6 +76,13 @@ h1 {
     text-align: center;
 }
 
+.link-card p {
+    color: #343a40;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
 footer {
     background-color: #343a40;
     color: #ffffff;
