@@ -65,40 +65,32 @@
             100% { transform: translate(-100%, 0); }
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            max-width: 800px;
+            margin-bottom: 20px;
         }
 
-        .link-card {
-            background-color: #ffffff;
+        th, td {
+            padding: 12px;
             border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px auto;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-            max-width: 600px;
+            text-align: center;
         }
 
-        .link-card:hover {
-            transform: scale(1.02);
+        th {
+            background-color: #343a40;
+            color: white;
         }
 
-        .link-card a {
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
             text-decoration: none;
             color: #007bff;
-            font-size: 18px;
-            display: block;
-            text-align: center;
-        }
-
-        .link-card p {
-            color: #343a40;
-            font-size: 14px;
-            text-align: center;
-            margin-top: 10px;
         }
 
         footer {
@@ -117,10 +109,6 @@
                 padding: 10px;
             }
 
-            .link-card {
-                padding: 10px;
-            }
-
             .marquee {
                 font-size: 10px; /* 移动设备上的字体大小 */
             }
@@ -132,52 +120,71 @@
         <h1>高质量磁力搜索引擎聚合</h1>
         <div class="banner">
             <div class="marquee" id="marquee">
-                <span>www.dkls.com失效</span>
-                <span>www.dkls.com新增</span>
+                <span>www.random1.com失效</span>
+                <span>www.random2.com新增</span>
             </div>
         </div>
-        <div id="link-cards" class="grid-container">
-            <div class="link-card">
-                <a href="https://hn.cilido.top/">https://hn.cilido.top/</a>
-                <p>搜索结果不准，有大部分与搜索结果无关的内容。</p>
-            </div>
-            <div class="link-card">
-                <a href="https://h75nqa.sokk34.buzz/">https://h75nqa.sokk34.buzz/</a>
-                <p>搜索结果准，有部分与搜索结果无关的内容。</p>
-            </div>
-            <div class="link-card">
-                <a href="https://wuqianun.top/">https://wuqianun.top/</a>
-                <p>搜索结果准，有部分与搜索结果无关的内容。</p>
-            </div>
-            <div class="link-card">
-                <a href="https://clm20240609.xn--yets15cv4k.com/">https://clm20240609.xn--yets15cv4k.com/</a>
-                <p>搜索结果不准，有大部分与搜索结果无关的内容。</p>
-            </div>
-            <div class="link-card">
-                <a href="https://u9a9.link/">https://u9a9.link/</a>
-                <p>链接无效</p>
-            </div>
-            <div class="link-card">
-                <a href="https://lemongb.top/">https://lemongb.top/</a>
-                <p>搜索结果准，有部分与搜索结果无关的内容。</p>
-            </div>
-            <div class="link-card">
-                <a href="https://cilidi.top/">https://cilidi.top/</a>
-                <p>搜索结果准，有部分与搜索结果无关的内容。</p>
-            </div>
-            <div class="link-card">
-                <a href="https://xn--bt-yq5cy8rerbq21h.com/">https://xn--bt-yq5cy8rerbq21h.com/</a>
-                <p>搜索结果不准，有大部分与搜索结果无关的内容。</p>
-            </div>
-            <div class="link-card">
-                <a href="https://heimaai.top/">https://heimaai.top/</a>
-                <p>搜索结果准，有部分与搜索结果无关的内容。</p>
-            </div>
-            <div class="link-card">
-                <a href="https://btstar.top/">https://btstar.top/</a>
-                <p>搜索结果不准，有大部分与搜索结果无关的内容。</p>
-            </div>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>网址</th>
+                    <th>准确性</th>
+                    <th>广告内容数量</th>
+                </tr>
+            </thead>
+            <tbody id="link-rows">
+                <tr>
+                    <td><a href="https://hn.cilido.top/">https://hn.cilido.top/</a></td>
+                    <td>不准</td>
+                    <td>多</td>
+                </tr>
+                <tr>
+                    <td><a href="https://h75nqa.sokk34.buzz/">https://h75nqa.sokk34.buzz/</a></td>
+                    <td>准</td>
+                    <td>部分</td>
+                </tr>
+                <tr>
+                    <td><a href="https://wuqianun.top/">https://wuqianun.top/</a></td>
+                    <td>准</td>
+                    <td>部分</td>
+                </tr>
+                <tr>
+                    <td><a href="https://clm20240609.xn--yets15cv4k.com/">https://clm20240609.xn--yets15cv4k.com/</a></td>
+                    <td>不准</td>
+                    <td>多</td>
+                </tr>
+                <tr>
+                    <td><a href="https://u9a9.link/">https://u9a9.link/</a></td>
+                    <td>无效</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://lemongb.top/">https://lemongb.top/</a></td>
+                    <td>准</td>
+                    <td>部分</td>
+                </tr>
+                <tr>
+                    <td><a href="https://cilidi.top/">https://cilidi.top/</a></td>
+                    <td>准</td>
+                    <td>部分</td>
+                </tr>
+                <tr>
+                    <td><a href="https://xn--bt-yq5cy8rerbq21h.com/">https://xn--bt-yq5cy8rerbq21h.com/</a></td>
+                    <td>不准</td>
+                    <td>多</td>
+                </tr>
+                <tr>
+                    <td><a href="https://heimaai.top/">https://heimaai.top/</a></td>
+                    <td>准</td>
+                    <td>部分</td>
+                </tr>
+                <tr>
+                    <td><a href="https://btstar.top/">https://btstar.top/</a></td>
+                    <td>不准</td>
+                    <td>多</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <footer>
         <p>以上链接实时搜集于网络，仅供交流与学习，链接的网站与本网站无关，请用于合法用途。</p>
@@ -201,14 +208,14 @@
         }
 
         function shuffleLinks() {
-            const linkCards = document.getElementById('link-cards');
-            for (let i = linkCards.children.length; i >= 0; i--) {
-                linkCards.appendChild(linkCards.children[Math.random() * i | 0]);
+            const linkRows = document.getElementById('link-rows');
+            for (let i = linkRows.children.length; i >= 0; i--) {
+                linkRows.appendChild(linkRows.children[Math.random() * i | 0]);
             }
         }
 
         setInterval(updateMarquee, 5000); // 更新间隔为5秒
-        setInterval(shuffleLinks, 30000); // 链接顺序变换间隔为30秒
+        setInterval(shuffleLinks, 60000); // 链接顺序变换间隔为60秒
     </script>
 </body>
 </html>
