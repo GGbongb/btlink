@@ -41,27 +41,45 @@
             background-color: #343a40;
             color: #ffffff;
             overflow: hidden;
-            white-space: nowrap;
             box-sizing: border-box;
             padding: 5px 0;
             margin-bottom: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .marquee {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 10s linear infinite;
-            font-size: 12px; /* 调整字体大小 */
+        .announcement {
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .marquee span {
-            display: inline-block;
-            padding: 0 1rem;
+        .announcement-icon {
+            margin-right: 10px;
+            font-size: 16px;
         }
 
-        @keyframes marquee {
-            0%   { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
+        .announcement-text {
+            animation: slide 10s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateY(100%);
+            }
+            10% {
+                transform: translateY(0);
+            }
+            90% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
         }
 
         table {
@@ -109,7 +127,7 @@
                 padding: 10px;
             }
 
-            .marquee {
+            .announcement {
                 font-size: 10px; /* 移动设备上的字体大小 */
             }
         }
@@ -119,9 +137,9 @@
     <div class="container">
         <h1>高质量磁力搜索引擎聚合</h1>
         <div class="banner">
-            <div class="marquee" id="marquee">
-                <span>www.random1.com失效</span>
-                <span>www.random2.com新增</span>
+            <div class="announcement">
+                <div class="announcement-icon">🔊</div>
+                <div class="announcement-text">BT链接每日更新</div>
             </div>
         </div>
         <table>
@@ -132,6 +150,14 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td><a href="https://www.wuyeso.top/">https://www.wuyeso.top/</a></td>
+                    <td>√</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.868888.net/">https://www.868888.net/</a></td>
+                    <td>√</td>
+                </tr>
                 <tr>
                     <td><a href="https://lemongb.top/">https://lemongb.top/</a></td>
                     <td>√</td>
@@ -168,28 +194,11 @@
                     <td><a href="https://clm20240609.xn--yets15cv4k.com/">https://clm20240609.xn--yets15cv4k.com/</a></td>
                     <td>√</td>
                 </tr>
-                <tr>
-                    <td><a href="https://u9a9.link/">https://u9a9.link/</a></td>
-                    <td>×</td>
-                </tr>
             </tbody>
         </table>
     </div>
     <footer>
         <p>以上链接实时搜集于网络，仅供交流与学习，链接的网站与本网站无关，请用于合法用途。</p>
     </footer>
-
-    <script>
-        function getRandomUrl() {
-            const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-            let url = 'www.';
-            for (let i = 0; i < 8; i++) {
-                url += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            url += '.com';
-            return url;
-        }
-
-        function updateMarquee() {
-            const marquee = document.getElementById('marquee');
-            const urls = [getRandomUrl(), getRandomUrl
+</body>
+</html>
