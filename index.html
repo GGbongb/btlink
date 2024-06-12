@@ -115,8 +115,6 @@
             color: #ffffff;
             text-align: center;
             padding: 5px 0; /* 缩小底部横幅的高度 */
-            position: fixed;
-            bottom: 0;
             width: 100%;
             font-size: 12px;
             overflow-x: auto; /* 使底部横幅在移动设备上可水平滚动 */
@@ -129,6 +127,10 @@
 
             .announcement {
                 font-size: 10px; /* 移动设备上的字体大小 */
+            }
+
+            footer {
+                position: relative; /* 移动设备上不固定底部横幅 */
             }
         }
     </style>
