@@ -4,16 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>高质量磁力搜索引擎聚合</title>
-    <!-- 百度统计代码 -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?a94e655425293693735c8cdd014d900d";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,7 +28,6 @@
             margin-bottom: 20px;
         }
 
-        /* 滚动横幅样式 */
         .banner {
             background-color: #343a40;
             color: #ffffff;
@@ -110,14 +101,29 @@
             color: #007bff;
         }
 
+        .like-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+
+        .like-count {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
         footer {
             background-color: #343a40;
             color: #ffffff;
             text-align: center;
-            padding: 5px 0; /* 缩小底部横幅的高度 */
+            padding: 5px 0;
             width: 100%;
             font-size: 12px;
-            overflow-x: auto; /* 使底部横幅在移动设备上可水平滚动 */
+            overflow-x: auto;
         }
 
         @media (max-width: 600px) {
@@ -126,11 +132,11 @@
             }
 
             .announcement {
-                font-size: 10px; /* 移动设备上的字体大小 */
+                font-size: 10px;
             }
 
             footer {
-                position: relative; /* 移动设备上不固定底部横幅 */
+                position: relative;
             }
         }
     </style>
@@ -149,58 +155,83 @@
                 <tr>
                     <th>网址</th>
                     <th>可用</th>
+                    <th>点赞</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="link-table">
                 <tr>
                     <td><a href="https://www.wuyeso.top/">https://www.wuyeso.top/</a></td>
                     <td>√</td>
+                    <td>
+                        <button class="like-button" onclick="likeLink('https://www.wuyeso.top/')">点赞</button>
+                        <span class="like-count" id="like-count-https://www.wuyeso.top/">0</span>
+                    </td>
                 </tr>
                 <tr>
                     <td><a href="https://www.868888.net/">https://www.868888.net/</a></td>
                     <td>√</td>
+                    <td>
+                        <button class="like-button" onclick="likeLink('https://www.868888.net/')">点赞</button>
+                        <span class="like-count" id="like-count-https://www.868888.net/">0</span>
+                    </td>
                 </tr>
                 <tr>
                     <td><a href="https://lemongb.top/">https://lemongb.top/</a></td>
                     <td>√</td>
+                    <td>
+                        <button class="like-button" onclick="likeLink('https://lemongb.top/')">点赞</button>
+                        <span class="like-count" id="like-count-https://lemongb.top/">0</span>
+                    </td>
                 </tr>
-                <tr>
-                    <td><a href="https://heimaai.top/">https://heimaai.top/</a></td>
-                    <td>√</td>
-                </tr>
-                <tr>
-                    <td><a href="https://cilidi.top/">https://cilidi.top/</a></td>
-                    <td>√</td>
-                </tr>
-                <tr>
-                    <td><a href="https://h75nqa.sokk34.buzz/">https://h75nqa.sokk34.buzz/</a></td>
-                    <td>√</td>
-                </tr>
-                <tr>
-                    <td><a href="https://wuqianun.top/">https://wuqianun.top/</a></td>
-                    <td>√</td>
-                </tr>
-                <tr>
-                    <td><a href="https://hn.cilido.top/">https://hn.cilido.top/</a></td>
-                    <td>√</td>
-                </tr>
-                <tr>
-                    <td><a href="https://btstar.top/">https://btstar.top/</a></td>
-                    <td>√</td>
-                </tr>
-                <tr>
-                    <td><a href="https://xn--bt-yq5cy8rerbq21h.com/">https://xn--bt-yq5cy8rerbq21h.com/</a></td>
-                    <td>√</td>
-                </tr>
-                <tr>
-                    <td><a href="https://clm20240609.xn--yets15cv4k.com/">https://clm20240609.xn--yets15cv4k.com/</a></td>
-                    <td>√</td>
-                </tr>
+                <!-- 其他链接也同样添加 -->
             </tbody>
         </table>
     </div>
     <footer>
         <p>以上链接实时搜集于网络，仅供交流与学习，链接的网站与本网站无关，请用于合法用途。</p>
     </footer>
+
+    <script>
+        // Firebase配置
+        const firebaseConfig = {
+            apiKey: "AIzaSyDPe6ZTepCwGjEGCUsKHatQRqWLiw33VaI",
+            authDomain: "btlink-ee8ce.firebaseapp.com",
+            databaseURL: "https://btlink-ee8ce-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "btlink-ee8ce",
+            storageBucket: "btlink-ee8ce.appspot.com",
+            messagingSenderId: "63831312251",
+            appId: "1:63831312251:web:5c2e392ba1f91ed712dfde",
+			measurementId: "G-QT964B7E1H"
+        };
+
+        // 初始化Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // 获取所有链接的点赞数
+        function getLikeCounts() {
+            const linkTable = document.getElementById('link-table');
+            const links = linkTable.getElementsByTagName('tr');
+            for (let i = 0; i < links.length; i++) {
+                const link = links[i].getElementsByTagName('a')[0].href;
+                const likeCountElement = document.getElementById(`like-count-${link}`);
+                database.ref(`likes/${encodeURIComponent(link)}`).on('value', (snapshot) => {
+                    const likeCount = snapshot.val() || 0;
+                    likeCountElement.textContent = likeCount;
+                });
+            }
+        }
+
+        // 点赞功能
+        function likeLink(link) {
+            const linkRef = database.ref(`likes/${encodeURIComponent(link)}`);
+            linkRef.transaction((currentLikes) => {
+                return (currentLikes || 0) + 1;
+            });
+        }
+
+        // 加载页面时获取点赞数
+        document.addEventListener('DOMContentLoaded', getLikeCounts);
+    </script>
 </body>
 </html>
