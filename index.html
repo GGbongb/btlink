@@ -3,235 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高质量磁力搜索引擎聚合</title>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <title>磁力搜索引擎</title>
+    <!-- 百度统计代码 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?a94e655425293693735c8cdd014d900d";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- 百度统计代码结束 -->	
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
             margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
         }
-
         .container {
-            max-width: 100%;
-            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%;
             padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
         }
-
         h1 {
             text-align: center;
-            color: #343a40;
-            font-size: 24px;
-            line-height: 1.2;
             margin-bottom: 20px;
+            color: #2196F3;
         }
-
-        .banner {
-            background-color: #343a40;
-            color: #ffffff;
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
             overflow: hidden;
-            box-sizing: border-box;
-            padding: 5px 0;
-            margin-bottom: 20px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .announcement {
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .announcement-icon {
-            margin-right: 10px;
-            font-size: 16px;
-        }
-
-        .announcement-text {
-            animation: slide 10s linear infinite;
-            white-space: nowrap;
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateY(100%);
-            }
-            10% {
-                transform: translateY(0);
-            }
-            90% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-100%);
-            }
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 0 auto;
-            max-width: 800px;
-            margin-bottom: 20px;
-        }
-
-        th, td {
-            padding: 12px;
-            border: 1px solid #dee2e6;
+            margin: 10px;
+            padding: 15px;
             text-align: center;
-        }
-
-        th {
-            background-color: #343a40;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        a {
-            text-decoration: none;
-            color: #007bff;
-        }
-
-        .like-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 5px 10px;
+            background-color: #f9f9f9;
             cursor: pointer;
-            margin-left: 10px;
-            border-radius: 5px;
+            transition: transform 0.2s;
+            word-wrap: break-word;
         }
-
-        .like-count {
-            display: inline-block;
-            margin-left: 10px;
+        .card:hover {
+            transform: scale(1.05);
         }
-
-        footer {
-            background-color: #343a40;
-            color: #ffffff;
-            text-align: center;
-            padding: 5px 0;
-            width: 100%;
-            font-size: 12px;
-            overflow-x: auto;
+        .card-url {
+            color: #555;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-
-            .announcement {
-                font-size: 10px;
-            }
-
-            footer {
-                position: relative;
-            }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>高质量磁力搜索引擎聚合</h1>
-        <div class="banner">
-            <div class="announcement">
-                <div class="announcement-icon">🔊</div>
-                <div class="announcement-text">BT链接每日更新</div>
-            </div>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>网址</th>
-                    <th>可用</th>
-                    <th>点赞</th>
-                </tr>
-            </thead>
-            <tbody id="link-table">
-                <tr>
-                    <td><a href="https://www.wuyeso.top/">https://www.wuyeso.top/</a></td>
-                    <td>√</td>
-                    <td>
-                        <button class="like-button" onclick="likeLink('https://www.wuyeso.top/')">点赞</button>
-                        <span class="like-count" id="like-count-https://www.wuyeso.top/">0</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.868888.net/">https://www.868888.net/</a></td>
-                    <td>√</td>
-                    <td>
-                        <button class="like-button" onclick="likeLink('https://www.868888.net/')">点赞</button>
-                        <span class="like-count" id="like-count-https://www.868888.net/">0</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="https://lemongb.top/">https://lemongb.top/</a></td>
-                    <td>√</td>
-                    <td>
-                        <button class="like-button" onclick="likeLink('https://lemongb.top/')">点赞</button>
-                        <span class="like-count" id="like-count-https://lemongb.top/">0</span>
-                    </td>
-                </tr>
-                <!-- 其他链接也同样添加 -->
-            </tbody>
-        </table>
+        <h1>磁力搜索引擎</h1>
+        <div class="grid" id="linkGrid"></div>
     </div>
-    <footer>
-        <p>以上链接实时搜集于网络，仅供交流与学习，链接的网站与本网站无关，请用于合法用途。</p>
-    </footer>
-
     <script>
-        // Firebase配置
-        const firebaseConfig = {
-            apiKey: "AIzaSyDPe6ZTepCwGjEGCUsKHatQRqWLiw33VaI",
-            authDomain: "btlink-ee8ce.firebaseapp.com",
-            databaseURL: "https://btlink-ee8ce-default-rtdb.asia-southeast1.firebasedatabase.app",
-            projectId: "btlink-ee8ce",
-            storageBucket: "btlink-ee8ce.appspot.com",
-            messagingSenderId: "63831312251",
-            appId: "1:63831312251:web:5c2e392ba1f91ed712dfde",
-			measurementId: "G-QT964B7E1H"
-        };
+        const links = [
+            { url: 'http://example1.com' },
+            { url: 'http://example2.com' },
+            { url: 'http://example3.com' },
+            { url: 'https://ver.emoncili.com' },
+			{ url: 'https://wuqiansa.top/?_jubt' },
+			{ url: 'https://小野猫.com' },
+			{ url: 'https://chilisou15.xyz' },
+			{ url: 'https://u9a9.link/' },
+			{ url: 'https://btsow.motorcycles/tags' },
+			{ url: 'https://www.torrentkitty.best/search' },
+			{ url: 'https://skrbtcil.buzz' },
+			{ url: 'https://ibt120702.xyz' },
+			{ url: 'https://ilaowang05.xyz' },
+			{ url: 'https://xiongmaocl.top' },
+			{ url: 'https://m.zhongziso898.xyz' },
+			{ url: 'https://1ci.li/' },
+			{ url: 'https://m2m2.cc' },
+			{ url: 'http://ddcl.me' },
+			{ url: 'https://www.iyhg.fun' },
+			{ url: 'https://my.sofan.in' },
+			{ url: 'http://btmovi.lat' },
+			{ url: 'http://www.sobt.me' },
+			{ url: 'http://clm.la' },
+			{ url: 'http://seed8.org' },
+			{ url: 'http://btfox.one' },
+			{ url: 'https://ciliku.net/' },
+			{ url: 'https://bthub.work/' },
+			{ url: 'https://clgoes.com/' },
+			{ url: 'https://www.cilipa.me' },
+			{ url: 'https://868888.net' },
+			{ url: 'https://btmulu.work' },
+			{ url: 'https://磁力天堂.com' },
+			{ url: 'https://磁力搜.com' },
+			{ url: 'https://种子搜索.com' },
+			{ url: 'https://bt蚂蚁.com' },
+			{ url: 'https://cilidi.top' },
+			{ url: 'https://clzhizhu.com/' },
+			{ url: 'https://1024btbt.com' },
+			{ url: 'https://btfox.one/' },
+			{ url: 'https://磁力狗.com' },
+			{ url: 'https://cililian.cc' },
+			{ url: 'https://91bt.cyou' },
+			{ url: 'https://clmmdz.cyou' },
+			{ url: 'https://2048bt.cc' },
+			{ url: 'https://磁力宝宝.com' },
+			{ url: 'https://www.wuyeso.top' },
+			{ url: 'https://clgou.icu' },
+			{ url: 'https://磁力百科.com' },
+			{ url: 'https://www.d311.cc/' },
+			{ url: 'http://clhzcn.cilizhizhu.club' },
+			{ url: 'https://磁搜.com' },
+			{ url: 'https://www.2clw1.xyz/' },
+			{ url: 'https://so.btgpt.net/' },
+			{ url: 'https://anybt.eth.link' },
+        ];
 
-        // 初始化Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
+        const linkGrid = document.getElementById('linkGrid');
 
-        // 获取所有链接的点赞数
-        function getLikeCounts() {
-            const linkTable = document.getElementById('link-table');
-            const links = linkTable.getElementsByTagName('tr');
-            for (let i = 0; i < links.length; i++) {
-                const link = links[i].getElementsByTagName('a')[0].href;
-                const likeCountElement = document.getElementById(`like-count-${link}`);
-                database.ref(`likes/${encodeURIComponent(link)}`).on('value', (snapshot) => {
-                    const likeCount = snapshot.val() || 0;
-                    likeCountElement.textContent = likeCount;
-                });
-            }
-        }
+        links.forEach(link => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.onclick = () => window.location.href = link.url;
 
-        // 点赞功能
-        function likeLink(link) {
-            const linkRef = database.ref(`likes/${encodeURIComponent(link)}`);
-            linkRef.transaction((currentLikes) => {
-                return (currentLikes || 0) + 1;
-            });
-        }
+            const cardUrl = document.createElement('div');
+            cardUrl.className = 'card-url';
+            cardUrl.innerText = link.url;
 
-        // 加载页面时获取点赞数
-        document.addEventListener('DOMContentLoaded', getLikeCounts);
+            card.appendChild(cardUrl);
+            linkGrid.appendChild(card);
+        });
     </script>
+    <footer>
+        <p>网址搜集于网络、内容与本网站无关，仅供学习与使用</p>
+    </footer>
 </body>
 </html>
